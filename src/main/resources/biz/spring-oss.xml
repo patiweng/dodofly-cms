@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName">
+	<bean id="ossClientConfig" class="com.aliyun.openservices.ClientConfiguration">
+		<property name="maxConnections" value="${za.run.oss.client.maxConnections}"/>
+		<property name="SocketTimeout" value="${za.run.oss.client.socketTimeout}"/>
+		<property name="ConnectionTimeout" value="${za.run.oss.client.connectionTimeout}"/>
+		<property name="MaxErrorRetry" value="${za.run.oss.client.maxErrorRetry}"/>
+	</bean>
+	<bean id="ossTool" class="com.zhongan.app.run.cms.common.utils.OssTool">
+		<property name="accessId" value="${za.run.oss.accessId}"/>
+		<property name="accessKey" value="${za.run.oss.accessKey}"/>
+		<property name="endpoint" value="${za.run.oss.endpoint}"/>
+		<property name="bucketName" value="${za.run.oss.bucketName}"/>
+		<property name="testField" value="${za.run.oss.testField}"/>
+	</bean>
+</beans>

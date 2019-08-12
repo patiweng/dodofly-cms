@@ -1,0 +1,368 @@
+@charset "utf-8";
+/* 简单流媒体
+   注意: 流媒体要求您删除 HTML 中媒体的高度和宽度属性
+   http://www.alistapart.com/articles/fluid-images/ 
+*/
+img, object, embed, video {
+	max-width: 100%;
+}
+/* IE 6 不支持最大宽度，因此默认为 100% 宽度 */
+.ie6 img {
+	width:100%;
+}
+
+#weixin{
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+	position: absolute;
+	height: 100%;
+	background-color: #000;
+	filter: alpha(opacity=70);
+	opacity: 0.7;
+}
+/*
+	Dreamweaver 流体网格属性
+	----------------------------------
+	dw-num-cols-mobile:		5;
+	dw-num-cols-tablet:		8;
+	dw-num-cols-desktop:	10;
+	dw-gutter-percentage:	25;
+	
+	灵感来自于 Ethan Marcotte 的“具有响应的 Web 设计” 
+	http://www.alistapart.com/articles/responsive-web-design
+	
+	和 Joni Korpi 的“黄金网格系统”
+	http://goldengridsystem.com/
+*/
+/* 移动设备布局: 320px 及以下*/
+
+.gridContainer {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+	position: absolute;
+}
+#LayoutDiv1 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv2 {
+	clear: both;
+	float: left;
+	margin-left: 5%;
+	width: 40%;
+	display: block;
+	top: 21%;
+	position: absolute;
+	margin-top: 10%;
+}
+#LayoutDiv3 {
+	clear: both;
+	float: left;
+	margin-left: 55%;
+	width: 40%;
+	display: block;
+	position: absolute;
+	margin-top: 10%;
+	top: 21%;
+}
+#LayoutDiv4 {
+	clear: both;
+	float: left;
+	margin-left: 5%;
+	width: 40%;
+	display: block;
+	position: absolute;
+	top: 95%;
+}
+#LayoutDiv5 {
+	clear: both;
+	float: left;
+	margin-left: 55%;
+	width: 40%;
+	display: block;
+	position: absolute;
+	top: 95%;
+}
+
+/* 移动设备布局: 321px 到359px。 */
+@media only screen and (min-width: 321px) {
+.gridContainer {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+	position: absolute;
+}
+#LayoutDiv1 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv2 {
+	clear: both;
+	float: left;
+	margin-left: 3%;
+	width: 40%;
+	display: block;
+	top: 21%;
+	position: absolute;
+}
+#LayoutDiv3 {
+	clear: both;
+	float: left;
+	margin-left: 55%;
+	width: 40%;
+	display: block;
+	position: absolute;
+	top: 21%;
+}
+#LayoutDiv4 {
+	clear: both;
+	float: left;
+	margin-left: 3%;
+	width: 40%;
+	display: block;
+	position: absolute;
+	top: 95%;
+}
+#LayoutDiv5 {
+	clear: both;
+	float: left;
+	margin-left: 55%;
+	width: 40%;
+	display: block;
+	position: absolute;
+	top: 95%;
+}
+}
+/* 移动设备布局: 360px 到375px。 */
+@media only screen and (min-width: 360px) {
+.gridContainer {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+	position: absolute;
+}
+#LayoutDiv1 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv2 {
+	clear: both;
+	float: left;
+	margin-left: 5%;
+	width: 40%;
+	display: block;
+	top: 21%;
+	position: absolute;
+}
+#LayoutDiv3 {
+	clear: both;
+	float: left;
+	margin-left: 55%;
+	width: 40%;
+	display: block;
+	position: absolute;
+	top: 21%;
+}
+#LayoutDiv4 {
+	clear: both;
+	float: left;
+	margin-left: 5%;
+	width: 40%;
+	display: block;
+	position: absolute;
+	top: 95%;
+}
+#LayoutDiv5 {
+	clear: both;
+	float: left;
+	margin-left: 55%;
+	width: 40%;
+	display: block;
+	position: absolute;
+	top: 95%;
+}
+}
+/* 移动设备布局: 376px 到414px。 */
+@media only screen and (min-width: 376px) {
+.gridContainer {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+	position: absolute;
+}
+#LayoutDiv1 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv2 {
+	clear: both;
+	float: left;
+	margin-left: 5%;
+	width: 40%;
+	display: block;
+	top: 21%;
+	position: absolute;
+}
+#LayoutDiv3 {
+	clear: both;
+	float: left;
+	margin-left: 55%;
+	width: 40%;
+	display: block;
+	position: absolute;
+	top: 21%;
+}
+#LayoutDiv4 {
+	clear: both;
+	float: left;
+	margin-left: 5%;
+	width: 40%;
+	display: block;
+	position: absolute;
+	top: 95%;
+}
+#LayoutDiv5 {
+	clear: both;
+	float: left;
+	margin-left: 55%;
+	width: 40%;
+	display: block;
+	position: absolute;
+	top: 95%;
+}
+}
+
+
+ /*平板电脑布局: 415px 至 768px。样式继承自: 移动设备布局。*/ 
+
+@media only screen and (min-width: 415px) {
+.gridContainer {
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+	position: absolute;
+}
+#LayoutDiv1 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv2 {
+	clear: both;
+	float: left;
+	margin-left: 5%;
+	width: 100%;
+	display: block;
+	position: absolute;
+	top: 21%;
+}
+#LayoutDiv3 {
+	clear: both;
+	float: left;
+	margin-left: 55%;
+	width: 100%;
+	display: block;
+	position: absolute;
+	top: 21%;
+}
+#LayoutDiv4 {
+	clear: both;
+	float: left;
+	margin-left: 5%;
+	width: 100%;
+	display: block;
+	position: absolute;
+	top: 95%;
+}
+#LayoutDiv5 {
+	clear: both;
+	float: left;
+	margin-left: 55%;
+	width: 100%;
+	display: block;
+	position: absolute;
+	top: 95%;
+}
+}
+
+/* 桌面电脑布局: 769px 至最高 1232px。样式继承自: 移动设备布局和平板电脑布局。 */
+
+@media only screen and (min-width: 769px) {
+.gridContainer {
+	width: 88.2%;
+	max-width: 1920px;
+	padding-left: 0.9%;
+	padding-right: 0.9%;
+	margin: auto;
+	position: absolute;
+}
+#LayoutDiv1 {
+	clear: both;
+	float: left;
+	margin-left: 23%;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv2 {
+	clear: both;
+	float: left;
+	margin-left: 3%;
+	width: 100%;
+	display: block;
+	position: absolute;
+	top: 20%;
+}
+#LayoutDiv3 {
+	clear: both;
+	float: left;
+	margin-left: 38%;
+	width: 100%;
+	display: block;
+	position: absolute;
+	top: 20%;
+}
+#LayoutDiv4 {
+	clear: both;
+	float: left;
+	margin-left: 3%;
+	width: 100%;
+	display: block;
+	position: absolute;
+	top: 95%;
+}
+#LayoutDiv5 {
+	clear: both;
+	float: left;
+	margin-left: 38%;
+	width: 100%;
+	display: block;
+	position: absolute;
+	top: 95%;
+}
+}

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+	content="width=device-width,initial-scale=1.0,minimal-ui,maximum-scale=1.0,user-scalable=0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<!-- <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet"
+	href="/css/bootstrap-datepicker.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/index.css" />
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jquery-form.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/app.js"></script>
+<script src="/js/bootstrap-datepicker.min.js"></script>
+<script src="/js/bootstrap-datepicker.zh-CN.min.js"></script> -->
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet"
+	href="/css/bootstrap-datetimepicker.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" type="text/css" href="/js/jquery.multiselect.css" />
+<link rel="stylesheet" type="text/css" href="/js/jquery-ui.css" />
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jquery-form.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/app.js"></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="/js/jquery.selectboxes.js"></script>
+<script type="text/javascript" src="/js/jquery.bgiframe.min.js"></script>
+<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/js/jquery.multiselect.js"></script>
+<script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript"
+	src="/js/bootstrap-datepicker.zh-CN.min.js"></script>
+
+<title>历史汇总</title>
+<style>
+.modal-backdrop {
+	z-index: 1 !important;
+}
+
+.form_mydatetime {
+	position: relative;
+}
+
+span.add-on {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 40px !important;
+	line-height: 40px !important;
+	padding: 0 10px !important;
+	border: none !important;
+}
+
+.modal-backdrop {
+	z-index: 1 !important;
+}
+
+.control-group.success .input-prepend .add-on,.control-group.success .input-append .add-on
+	{
+	color: #468847;
+	background-color: #dff0d8;
+	border-color: #468847
+}
+
+.glyphicon {
+	background: url("/img/glyphicons-halflings.png") no-repeat;
+	background-size: 40px 16px;
+	background-size: 40px 16px;
+	display: inline-block;
+	width: 16px;
+	height: 40px;
+}
+
+i.icon-arrow-left {
+	background-position: 0 center;
+}
+
+i.icon-arrow-right {
+	background-position: -22px center
+}
+
+.control-group.error .input-prepend .add-on,.control-group.error .input-append .add-on
+	{
+	color: #b94a48;
+	background-color: #f2dede;
+	border-color: #b94a48
+}
+
+.control-group.warning .input-prepend .add-on,.control-group.warning .input-append .add-on
+	{
+	color: #c09853;
+	background-color: #fcf8e3;
+	border-color: #c09853
+}
+
+.control-group.info .input-prepend .add-on,.control-group.info .input-append .add-on
+	{
+	color: #3a87ad;
+	background-color: #d9edf7;
+	border-color: #3a87ad
+}
+
+.input-append .add-on,.input-prepend .add-on {
+	display: inline-block;
+	width: 40px;
+	height: 20px;
+	min-width: 16px;
+	padding: 4px 5px;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 20px;
+	text-align: center;
+	text-shadow: 0 1px 0 #fff;
+	background-color: #eee;
+	border: 1px solid #ccc
+}
+
+.input-append .add-on,.input-prepend .add-on,.input-append .btn,.input-prepend .btn,.input-append .btn-group>.dropdown-toggle,.input-prepend .btn-group>.dropdown-toggle
+	{
+	vertical-align: top;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0
+}
+
+.input-append .active,.input-prepend .active {
+	background-color: #a9dba9;
+	border-color: #46a546
+}
+
+.input-prepend .add-on,.input-prepend .btn {
+	margin-right: -1px
+}
+
+.input-prepend .add-on:first-child,.input-prepend .btn:first-child {
+	-webkit-border-radius: 4px 0 0 4px;
+	-moz-border-radius: 4px 0 0 4px;
+	border-radius: 4px 0 0 4px
+}
+
+.input-append .add-on,.input-append .btn,.input-append .btn-group {
+	margin-left: -1px
+}
+
+.input-append .add-on:last-child,.input-append .btn:last-child,.input-append .btn-group:last-child>.dropdown-toggle
+	{
+	-webkit-border-radius: 0 4px 4px 0;
+	-moz-border-radius: 0 4px 4px 0;
+	border-radius: 0 4px 4px 0
+}
+
+.input-prepend.input-append input,.input-prepend.input-append select,.input-prepend.input-append .uneditable-input
+	{
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0
+}
+
+.input-prepend.input-append input+.btn-group .btn,.input-prepend.input-append select+.btn-group .btn,.input-prepend.input-append .uneditable-input+.btn-group .btn
+	{
+	-webkit-border-radius: 0 4px 4px 0;
+	-moz-border-radius: 0 4px 4px 0;
+	border-radius: 0 4px 4px 0
+}
+
+.input-prepend.input-append .add-on:first-child,.input-prepend.input-append .btn:first-child
+	{
+	margin-right: -1px;
+	-webkit-border-radius: 4px 0 0 4px;
+	-moz-border-radius: 4px 0 0 4px;
+	border-radius: 4px 0 0 4px
+}
+
+.input-prepend.input-append .add-on:last-child,.input-prepend.input-append .btn:last-child
+	{
+	margin-left: -1px;
+	-webkit-border-radius: 0 4px 4px 0;
+	-moz-border-radius: 0 4px 4px 0;
+	border-radius: 0 4px 4px 0
+}
+
+.timeer {
+	margin-left: 20px;
+	width: 200px;
+	text-indent: 1em;
+}
+
+.width100 {
+	width: 100px;
+	float: left;
+	line-height: 40px;
+}
+/* .edui-default .edui-dialog-modalmask{z-index:1043!important;} */
+</style>
+</head>
+<body>
+	<div class="container q-firm">
+		<div th:include="cms/pagemodule::leftmenu"></div>
+		<div class="container-fluid q-right">
+			<div class="table-responsive q-w11">
+				<form id="form" class="form-inline"
+					th:action="@{/run/cms/excelbusiness/select/selecthistorybusinesslistpage}"
+					th:object="${historyBusinessDTO}" th:method="post">
+					<input type="hidden" id="currentPage" th:field="*{currentPage}" />
+					<input id="bopsFlag" name="bopsFlag" type="hidden" value="2" />
+					<div class="form-group col-xs-12">
+							<input type="submit" id="dosearch" value ="历史汇总" class="btn btn-default g-button" />
+							<a id="doexcel" class="g-button"  role="button" data-toggle="modal">导出excel</a>
+					</div>
+					</form>
+				<h2 class="panel-title">历史汇总</h2>
+				<br />
+				<table class="table table-bordered col-xs-11 text-center">
+				<tr>
+				<td rowspan="2">渠道</td>
+				<td colspan="2">总用户数</td>
+				<td colspan="2">续保用户（含增险）</td>
+				<td rowspan="2">在保用户数</td>
+				</tr>				
+				
+				<tr>
+				<td>授权用户</td>
+				<td>投保用户</td>
+				<td>总续保用户</td>
+				<td>总保费收入</td>
+				</tr>
+					<tr th:if="${page eq null}">
+						<td colspan="6">记录不存在</td>
+					</tr>
+					<tr th:each="historyBusinessDTO:${historyBusinessList}">
+						<td th:text="${historyBusinessDTO.source_name}"></td>
+						<td th:text="${historyBusinessDTO.alluser_shouquan}"></td>
+						<td th:text="${historyBusinessDTO.alluser_insure}"></td>
+						<td th:text="${historyBusinessDTO.xbuser_all}"></td>
+						<td th:text="${historyBusinessDTO.xbuser_premium}"></td>
+						<td th:text="${historyBusinessDTO.zaibao_user}"></td>
+					</tr>
+				</table>
+				<div th:if="${page} != null">
+					检索结果 <span th:text="${page.totalItem}"></span> 件 <a class="query"
+						id="first" th:value="1" href="javascript:void(0)">首页</a> <a
+						id="prev" th:value="${page.currentPage-1}"
+						href="javascript:void(0)">上一页</a> <span
+						th:text="${page.currentPage}"></span> / <span
+						th:text="${page.totalPage}"></span> 页 <a id="next"
+						th:value="${page.currentPage+1}" href="javascript:void(0)">下一页</a>
+					<a class="query" id="last" th:value="${page.totalPage}"
+						href="javascript:void(0)">尾页</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+    var f = true;
+	//导出报表
+	$("#doexcel").click(function() {
+		var url = "/run/cms/excelbusiness/select/doexportexcelhistorybusiness";
+		window.location.href = url;
+	});
+
+	$("#dosearch").click(function() {
+		$("#currentPage").prop("value", "1");
+	});
+	$(".query").click(function() {
+		$("#currentPage").prop("value", $(this).attr("value"));
+		$("#form").submit();
+	});
+	$("#prev").click(function() {
+		$("#currentPage").prop("value", $(this).attr("value"));
+		if ($("#currentPage").attr("value") != 0) {
+			$("#form").submit();
+		}
+	});
+	$("#next").click(
+			function() {
+				$("#currentPage").prop("value", $(this).attr("value"));
+				if ($("#currentPage").attr("value") != (parseInt($("#last")
+						.attr("value")) + 1)) {
+					$("#form").submit();
+				}
+			});
+</script>
+</html>

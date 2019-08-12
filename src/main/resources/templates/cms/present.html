@@ -1,0 +1,305 @@
+<!doctype html>
+<html  xmlns:th="http://www.thymeleaf.org" >
+  <head>  
+    <meta charset="utf-8"/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimal-ui,maximum-scale=1.0,user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no" />
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap-datepicker.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="/js/jquery.multiselect.css" />
+	<link rel="stylesheet" type="text/css" href="/js/jquery-ui.css" />
+    <script type="text/javascript" src="/js/jquery.min.js"></script>    
+    <script type="text/javascript" src="/js/jquery-form.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>    
+	<script type="text/javascript" src="/js/app.js"></script>
+	<script type="text/javascript" src="/js/jquery.blockUI.js" ></script>
+	<script type="text/javascript" src="/js/jquery.selectboxes.js"></script>
+	<script type="text/javascript" src="/js/jquery.bgiframe.min.js"></script>
+	<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.multiselect.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+	<script src="/js/bootstrap-datepicker.min.js"></script>
+    <script src="/js/bootstrap-datepicker.zh-CN.min.js"></script>
+     
+    <title>礼物后台管理</title>
+    <style>
+    .form_datetime {position:relative;}
+    span.add-on{position:absolute;top:0;left:0;height:40px!important;line-height:40px!important; padding:0 10px!important;border:none!important;}
+    .form_datetime .form-control{text-indent:3em;}
+    .modal-backdrop{z-index:1!important;}
+    .control-group.success .input-prepend .add-on,.control-group.success .input-append .add-on {
+    color: #468847;
+    background-color: #dff0d8;
+    border-color: #468847
+}
+.glyphicon {
+    background: url("/img/glyphicons-halflings.png") no-repeat;
+    background-size: 40px 16px;
+    background-size: 40px 16px;
+    display: inline-block;
+    width: 16px;
+    height: 40px;
+}
+
+i.icon-arrow-left {
+    background-position: 0 center;
+}
+
+i.icon-arrow-right {
+    background-position: -22px center
+}
+.control-group.error .input-prepend .add-on,.control-group.error .input-append .add-on {
+    color: #b94a48;
+    background-color: #f2dede;
+    border-color: #b94a48
+}
+.control-group.warning .input-prepend .add-on,.control-group.warning .input-append .add-on {
+    color: #c09853;
+    background-color: #fcf8e3;
+    border-color: #c09853
+}
+.control-group.info .input-prepend .add-on,.control-group.info .input-append .add-on {
+    color: #3a87ad;
+    background-color: #d9edf7;
+    border-color: #3a87ad
+}
+.input-append .add-on,.input-prepend .add-on {
+    display: inline-block;
+    width: auto;
+    height: 20px;
+    min-width: 16px;
+    padding: 4px 5px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+    text-align: center;
+    text-shadow: 0 1px 0 #fff;
+    background-color: #eee;
+    border: 1px solid #ccc
+}
+
+.input-append .add-on,.input-prepend .add-on,.input-append .btn,.input-prepend .btn,.input-append .btn-group>.dropdown-toggle,.input-prepend .btn-group>.dropdown-toggle {
+    vertical-align: top;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0
+}
+
+.input-append .active,.input-prepend .active {
+    background-color: #a9dba9;
+    border-color: #46a546
+}
+
+.input-prepend .add-on,.input-prepend .btn {
+    margin-right: -1px
+}
+
+.input-prepend .add-on:first-child,.input-prepend .btn:first-child {
+    -webkit-border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px
+}
+.input-append .add-on,.input-append .btn,.input-append .btn-group {
+    margin-left: -1px
+}
+
+.input-append .add-on:last-child,.input-append .btn:last-child,.input-append .btn-group:last-child>.dropdown-toggle {
+    -webkit-border-radius: 0 4px 4px 0;
+    -moz-border-radius: 0 4px 4px 0;
+    border-radius: 0 4px 4px 0
+}
+
+.input-prepend.input-append input,.input-prepend.input-append select,.input-prepend.input-append .uneditable-input {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0
+}
+
+.input-prepend.input-append input+.btn-group .btn,.input-prepend.input-append select+.btn-group .btn,.input-prepend.input-append .uneditable-input+.btn-group .btn {
+    -webkit-border-radius: 0 4px 4px 0;
+    -moz-border-radius: 0 4px 4px 0;
+    border-radius: 0 4px 4px 0
+}
+
+.input-prepend.input-append .add-on:first-child,.input-prepend.input-append .btn:first-child {
+    margin-right: -1px;
+    -webkit-border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px
+}
+
+.input-prepend.input-append .add-on:last-child,.input-prepend.input-append .btn:last-child {
+    margin-left: -1px;
+    -webkit-border-radius: 0 4px 4px 0;
+    -moz-border-radius: 0 4px 4px 0;
+    border-radius: 0 4px 4px 0
+}
+    
+    /* .edui-default .edui-dialog-modalmask{z-index:1043!important;} */
+    </style>
+  </head>
+  <body><!--[if lt IE 8]>
+    <p class="browsehappy">
+      You are using an <strong>outdated</strong> browser.
+      Please <a href="http://browsehappy.com/">upgrade your browser</a>
+      to improve your experience.
+    </p><![endif]-->
+    <div class="container q-firm">  
+     <div th:include="cms/pagemodule::leftmenu"></div>
+      <div class="container-fluid q-right">
+        <div class="table-responsive q-w11">              
+              <br/> 
+              <form id="form" class="form-inline g-search" th:object="${rafflePresentDTO}"  th:action="@{/run/cms/activity/select/presentpage}" th:method="post">
+               <a id="add" class="g-button" role="button" data-toggle="modal" style="margin:25px auto 0">添加礼物</a> 
+               <input type="hidden" id="currentPage" th:field="*{currentPage}"/>  
+             </form> 
+             <h2 class="panel-title">礼物列表</h2>
+               <br/>
+              <table class="table table-bordered col-xs-11 text-center">
+                <tr>  
+                   <td>礼物id</td>                
+                  <td>礼物名称</td>
+                  <td>礼物小图标</td>
+                  <td>价格</td>
+                  <td>礼物描述</td>
+                  <td>礼物类型</td>
+                  <td>操作</td>
+                </tr>
+                <tr th:if="${page eq null}">
+					<td colspan="8">记录不存在</td>
+				</tr>
+                <tr th:each="presents:${presentlistPage}">  
+                <td th:text="${presents.id}"></td>              
+                  <td th:text="${presents.name}"></td>
+                  <td><img id="identify" th:src="${presents.identify}+_1" width="100%"/></td>                 
+                  <td th:text="${presents.price}"></td>
+                  <td th:text="${presents.description}"></td>
+                  <td th:switch="${presents.type}">
+	                <div th:switch="${presents.type}">
+		            	<p th:case="0">步步保优惠券</p>
+		            	<p th:case="1">实物</p>
+		            	<p th:case="2">电话费</p>
+		            	<p th:case="3">类JD的虚拟点卡</p>
+		            	<p th:case="4">渠道券</p>
+		            	<p th:case="5">线下领取</p>
+		            	<p th:case="6">幸运币</p>
+		            	<p th:case="7">健康服务</p>
+		            	<p th:case="8">活力值</p>
+					</div>
+                  </td>
+                  <td><a role="button" id="edit" style="color:lightseagreen;" class="edit" th:value="${presents.id}" data-toggle="modal">修改</a>&nbsp;<a role="button" id="deleteOne" class="deleteOne" th:value="${presents.id}" style="color:lightseagreen;" data-toggle="modal">删除</a></td>
+                </tr>
+              </table>
+              <div th:if="${page} != null"> 
+				检索结果  <span th:text="${page.totalItem}"></span> 件
+                <a class="query" id="first" th:value="1" href="javascript:void(0)">首页</a>
+                <a id="prev" th:value="${page.currentPage-1}" href="javascript:void(0)">上一页</a>
+                <span th:text="${page.currentPage}"></span> / <span th:text="${page.totalPage}"></span> 页
+                <a id="next" th:value="${page.currentPage+1}" href="javascript:void(0)">下一页</a>
+                <a class="query" id="last" th:value="${page.totalPage}" href="javascript:void(0)">尾页</a>
+            </div>                                      
+       </div>     
+    </div> 
+</div>          
+
+<!-- model -->
+<div id="totalModal" class="modal fade addNewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="z-index:2!important;">
+    <div class="modal-dialog q-add-jfg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">添加/修改礼物</h4>
+            </div>
+            <div class="modal-body">
+                <form id="eventForm" th:action="@{/run/cms/activity/insertorupdate}" th:object="${rafflePresentDTO}" th:method="post" onsubmit="return postData()" enctype="multipart/form-data">                     
+                     <input id="bopsFlag" name="bopsFlag" type="hidden" value="1"/>
+                     <div class="form-group  col-xs-12" style="display:none">
+                        <label for="present-id" class="control-label">present-id:</label>
+                        <input type="text" class="form-control" id="present-id" th:field="*{id}"/>
+                    </div>                         
+                     <div class="form-group  col-xs-12">
+                        <label for="name" class="control-label">礼物名称:</label>
+                        <input type="text" class="form-control" id="name" th:field="*{name}" th:required="required" th:placeholder="15个字符以内"/>
+                    </div>       
+                     <div class="form-group  col-xs-12">
+                        <label for="price" class="control-label">价格:</label>
+                        <input type="text" class="form-control" id="price" th:field="*{price}" th:required="required"/>
+                    </div>
+                    <div class="form-group  col-xs-12">
+                        <label for="url" class="control-label">连接地址:</label>
+                        <input type="text" class="form-control" id="url" th:field="*{url}"/>
+                    </div>   
+                     <div class="form-group  col-xs-12">
+                        <label for="integral" class="control-label">活力值:</label>
+                        <input type="text" class="form-control" id="integral" th:field="*{integral}"/>
+                    </div>  
+                     <div class="form-group  col-xs-12">
+                        <label for="description" class="control-label">礼物描述:</label>
+                        <input type="text" class="form-control" id="description" th:field="*{description}" th:required="required"/>
+                    </div>  
+                    <div class="form-group col-xs-12">
+                        <label for="type" class="control-label">活动类型:</label>
+                        <select class="form-control" id="type" th:field="*{type}">                        
+	                     <option value="0">步步保优惠券</option>
+	                     <option value="1">实物</option>
+	                     <option value="2">电话费</option>
+	                     <option value="3">类JD的虚拟点卡</option>
+	                     <option value="4">渠道券</option>
+	                     <option value="5">线下领取</option>
+	                     <option value="6">幸运币</option>
+	                     <option value="7">健康服务</option>
+	                     <option value="8">活力值</option>
+                         </select>                      	                        
+                    </div>
+                	  <div class="form-group col-xs-12">
+	                    <label class="control-label col-xs-3">小图片:</label>
+	                    <div class="col-xs-9">
+	                    	<div id="uploadImg" class="col-xs-5">
+	                        </div>
+	                        <div id="uploadPre" class="col-xs-5">
+	                        	<img id="identify_id" width="100%"/>
+	                        </div>
+	                        <div class="col-xs-7">
+		                        <p>大小  256k</p>
+		                        <p style="height:20px;position:relative;">
+	                            	<input id="upload" type="file" class="img-input" th:field="*{presentImgFile}"/>
+	                                <a href="javascript:void(0)" id="sabe" class="g-button">上传</a>
+	                        	</p>
+	                        </div>
+	                  	</div>
+                	</div>      
+                	<div class="form-group col-xs-12">
+	                    <label class="control-label col-xs-3">大图标:</label>
+	                    <div class="col-xs-9">
+	                    	<div id="uploadTwoImg" class="col-xs-5">
+	                        </div>
+	                        <div id="uploadTwoPre" class="col-xs-5">
+	                        	<img id="identifybig_id" width="100%"/>
+	                        </div>
+	                        <div class="col-xs-7">
+	                        <p>大小  256k</p>
+		                        <p style="height:20px;position:relative;">
+	                            	<input id="uploadTwo" type="file" class="img-input" th:field="*{presentImgFileTwo}"/>
+	                                <a href="javascript:void(0)" id="sabe" class="g-button">上传</a>
+	                        	</p>
+	                        </div>
+	                  	</div>
+                	</div>                             
+                 <div style="text-align:center;" class="form-group modal-footer col-xs-6">
+                 <input type="submit" id="save" placeholder="600" value="保存"/><br/><input type="hidden" id="inputcontent"/>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+   <script type="text/javascript" src="/js/present.js"></script>
+  </body>
+</html>

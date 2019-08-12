@@ -1,0 +1,22 @@
+<!--左侧菜单栏START -->
+<div th:fragment="leftmenu"> 
+ <ul class="nav nav-pills nav-stacked col-xs-2 q-left" >
+     <li>
+         <div class="logo">
+             <img src="/img/imglogo.png" width="204" height="98"/>
+         </div>
+     </li>
+ 	<li th:each="menu:${userInfo}" th:classappend="${nowMenu} eq ${menu.menuUrl}? 'active'" >
+ 		<span class="line"></span>
+ 		<a th:href="${menu.menuUrl}">
+ 			<i th:class="${menu.menuClass}"></i><label th:text="${menu.menuName}"></label>
+ 		</a>
+ 	</li>
+ 	<li>
+ 	<a href="/run/cms/sys/index">
+ 			<i class="icon icon_quit"></i><label>退出</label>
+ 		</a>
+ 	</li>
+ </ul>
+ </div>
+ <!--左侧菜单栏END -->

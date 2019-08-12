@@ -1,0 +1,109 @@
+@charset "CESU-8";
+body,html{
+    height:100%;
+}
+body{
+    background: #fcfdfd;
+    display: -webkit-box;
+    font-family: 'Microsoft YaHei';
+}
+.Q-login{
+    background: #313c4a;
+    height:370px;
+    position: relative;
+    width:100%;
+    margin:0 auto;
+    top:50%;
+    margin-top:-185px;
+}
+.Q-login > span {
+    float: left;
+    width:50%;
+}
+.Q-login >div{
+    width:1000px;
+    margin:0 auto;
+    position: relative;
+}
+.Q-login >div>span{
+    display: inline-block;
+    line-height:370px;
+    position: absolute;
+    right:500px;
+}
+.Q-login .group-form{
+    position: absolute;
+    top:-56px;
+    right:0;
+    width:390px;
+    height:461px;
+    background: #fff;
+    float: right;
+    padding:25px;
+    font-size:14px;
+    line-height:40px;
+    border:1px solid #eeecec;
+
+}
+.group-form h3{
+    text-align: center;
+    font-size:26px;
+    color: #797777;
+    margin:10px auto 35px;
+    line-height:35px;
+}
+.group-form p{
+    height:40px;
+    line-height:40px;
+    margin:0 0 30px;
+    font-weight:100;
+}
+.group-form p>label{
+    max-width:50px;
+    min-width:50px;
+    display: inline-block;
+    text-align: justify;
+    font-weight:100;
+}
+.group-form p input{
+    width:260px;
+    height:40px;
+    line-height:20px;
+    padding:10px;
+    border:1px solid #e2e2e2;
+    background: #fff;
+    outline: none;
+}
+.group-form p input[type=submit]{
+    width:340px;
+    height:47px;
+    line-height:47px;
+    color: #fff;
+    font-size:24px;
+    background: #19d3d0;
+    padding:0;
+    position: absolute;
+    bottom:60px;
+}
+.s-left{
+    background: url("../img/logoin-left.png") no-repeat top center;
+    -webkit-background-size:100% 100%;
+    background-size:100% 100%;
+    left: -32px;
+}
+.shadow{
+    width:32px;
+    height:57px;
+    display: block;
+    position: absolute;
+    top: -2px;
+}
+.s-right{
+    background: url("../img/logoin-right.png") no-repeat top center;
+    -webkit-background-size:100% 100%;
+    background-size:100% 100%;
+    right: -32px;
+}
+.tishi{
+   text-align:center;color:red;font-weight:bolder;
+}

@@ -1,0 +1,41 @@
+.q-add-jfg {
+    top: 25%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+	}
+    .corform-model{
+        position: absolute;
+        height:136px;
+        top:50%;
+        margin-top:-68px;
+        left:50%;
+        margin-left:-150px;
+    }
+    .corform-model .modal-header{
+        padding: 15px 15px 0 15px;
+        border:none;
+    }
+    .corform-model .modal-title{
+        font-size:18px;
+        color:#333;
+    }
+    .corform-model .modal-footer{
+        padding:0;
+    }
+    .corform-model .modal-footer .btn{
+        width:47%;
+        padding:5px 0;
+        border-radius:0;
+        background: none;
+        color: #56d5d8;
+        font-size:15px;
+        border-right:1px solid #eee;
+    }
+    .corform-model .btn-default{
+        color: #333!important;
+    }
+    
+    #edui1_iframeholder{
+    		height:130px;
+    	}

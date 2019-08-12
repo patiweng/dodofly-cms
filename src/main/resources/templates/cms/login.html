@@ -1,0 +1,65 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>用户登录</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimal-ui,maximum-scale=1.0,user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no" />
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/login.css"/>
+    <script src="/js/jquery.min.js"></script>
+</head>
+<body>
+<div class="Q-login">
+    <div>
+        <span><img src="/img/imglogin-index.png" width="317" height="140" /></span>
+        
+        <form id="form" class="form-inline g-search" th:object="${userLoginDTO}"  th:action="@{/run/cms/sys/login}" th:method="post">
+            <input id="bopsFlag" name="bopsFlag" type="hidden" value="1"/>
+            <div class="group-form">
+                <span class="shadow s-left"></span>
+                <span class="shadow s-right"></span>
+                <h3>步步保后台管理系统</h3>
+                <p>
+                    <label for="insure">用户名:</label>
+                    <input id="userName" type="text" th:field="*{userName}" placeholder="请输入用户名" maxlength="18" />
+                </p>
+                <p>
+                    <label for="ipassword">密码:</label>
+                    <input id="userPassword" type="password"  th:field="*{userPassword}" value="" placeholder="密码" />
+                </p>
+                <p class="tishi" th:text="*{errMsg}"></p>
+                <p><input id="login" type="submit" value="登录" alt="登录" title="登录"/></p>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $('#login').on('click', function () {
+        var username = $('#userName').val(),
+         password = $('#userPassword').val();
+        if (!username.length) {
+            $('.tishi').text('请输入正确的用户名');
+            return false;
+        }
+        if (!password.length) {
+            $('.tishi').text('请您填写密码');
+            return false
+        }
+
+        if (!/^[0-9A-Za-z_]{6,32}$/.test(password)) {
+            $('.tishi').text('密码格式不正确，请重新输入');
+            return false;
+        }
+        return true;
+    })
+</script>
+</body>
+</html>
