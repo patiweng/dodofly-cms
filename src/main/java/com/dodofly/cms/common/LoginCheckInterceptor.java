@@ -3,7 +3,7 @@ package com.dodofly.cms.common;
 import com.alibaba.fastjson.JSONObject;
 import com.dodofly.cms.bean.BaseResult;
 import com.dodofly.cms.constants.CmsConstants;
-import com.dodofly.cms.webdto.LogCmsUserDTO;
+import com.dodofly.cms.webdto.LoginCmsUserDTO;
 import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -53,7 +53,7 @@ public class LoginCheckInterceptor extends HandlerInterceptorAdapter {
         /** 获取登录标识SID **/
         String sid = sidCk.getValue();
         /** 校验登录是否有效 **/
-        BaseResult<LogCmsUserDTO> logRs =null;
+        BaseResult<LoginCmsUserDTO> logRs =null;
         if (!logRs.success()) {
             log.info("sid{} checklogin fail,sid check fail", sid);
             /** 未登录、跳转至登录页面 **/
@@ -83,7 +83,7 @@ public class LoginCheckInterceptor extends HandlerInterceptorAdapter {
         /** 获取登录标识SID **/
         String sid = sidCk.getValue();
         /** 获取用户信息、返回给前端 **/
-        BaseResult<LogCmsUserDTO> logRs = null;
+        BaseResult<LoginCmsUserDTO> logRs = null;
         Map<String, Object> model = Maps.newHashMap();
         model.put(CmsConstants.LoginModelConst.BOPS_USERINFO, logRs.getResult().getPrivmenuList());
         /** 获取当前菜单URI **/
