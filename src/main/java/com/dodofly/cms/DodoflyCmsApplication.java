@@ -3,6 +3,7 @@ package com.dodofly.cms;
 import io.prometheus.client.hotspot.DefaultExports;
 import io.prometheus.client.spring.boot.EnablePrometheusEndpoint;
 import lombok.extern.slf4j.Slf4j;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,7 +20,7 @@ import java.util.TimeZone;
 @EnableAutoConfiguration
 @Configuration
 @EnableDiscoveryClient
-//@MapperScan(basePackages = "com.dodofly.cms.dao")
+@MapperScan(basePackages = "com.dodofly.cms.dao")
 @EnablePrometheusEndpoint
 @EnableFeignClients
 @Slf4j
