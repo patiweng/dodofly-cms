@@ -4,11 +4,6 @@ import org.slf4j.helpers.MessageFormatter;
 
 import java.io.Serializable;
 
-/**
- * @Author yangzhen001
- * @Date2019/8/12 14:29
- * @Description
- **/
 public class BaseResult<T> implements Serializable {
     private static final long serialVersionUID = 5758020086424746744L;
     public static final String SUCCESS_CODE = "0";

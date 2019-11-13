@@ -11,6 +11,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 
 import javax.annotation.PostConstruct;
 import java.util.TimeZone;
@@ -48,9 +49,8 @@ public class DodoflyCmsApplication {
      * @param registry
      */
 
-    /*
-     * public void addInterceptors(InterceptorRegistry registry) {
-     * registry.addInterceptor(loginCheckInterceptor).addPathPatterns("/dodofly/**")
-     * ; }
-     */
+    public void addInterceptors(InterceptorRegistry registry) {
+        //registry.addInterceptor(loginCheckInterceptor).addPathPatterns("/dodofly/**");
+    }
+
 }
