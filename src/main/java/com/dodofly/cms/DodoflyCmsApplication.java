@@ -1,6 +1,5 @@
 package com.dodofly.cms;
 
-import io.prometheus.client.hotspot.DefaultExports;
 import io.prometheus.client.spring.boot.EnablePrometheusEndpoint;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
@@ -11,9 +10,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 
-import javax.annotation.PostConstruct;
 import java.util.TimeZone;
 
 @SpringBootApplication
@@ -26,13 +23,6 @@ import java.util.TimeZone;
 @EnableFeignClients
 @Slf4j
 public class DodoflyCmsApplication {
-    //  @Resource
-    // private LoginCheckInterceptor loginCheckInterceptor;
-
-    @PostConstruct
-    public void init() {
-        DefaultExports.initialize();
-    }
 
     public static void main(String[] args) {
         log.info("==================DodoflyCmsApplication start .......======================");
@@ -40,17 +30,6 @@ public class DodoflyCmsApplication {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT+8"));
         SpringApplication.run(DodoflyCmsApplication.class, args);
         log.info("==================DodoflyCmsApplication start success======================");
-    }
-
-    /**
-     * 配置拦截器
-     *
-     * @author lance
-     * @param registry
-     */
-
-    public void addInterceptors(InterceptorRegistry registry) {
-        //registry.addInterceptor(loginCheckInterceptor).addPathPatterns("/dodofly/**");
     }
 
 }

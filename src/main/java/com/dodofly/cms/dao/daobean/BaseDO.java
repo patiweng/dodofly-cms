@@ -1,5 +1,6 @@
 package com.dodofly.cms.dao.daobean;
 
+import com.dodofly.common.constants.YesOrNoEnum;
 import lombok.Data;
 
 import java.util.Date;
@@ -17,7 +18,6 @@ public abstract class BaseDO {
 
     private Date   gmtModified;
 
-   // private String isDeleted = YesOrNo.NO.getCode();
-
+    private String isDeleted = YesOrNoEnum.NO.getCode();
 
 }

@@ -46,15 +46,6 @@
 
 
         <!-- Common packages -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.41</version>
-        </dependency>
 
         <dependency>
             <groupId>junit</groupId>
@@ -64,12 +55,6 @@
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
         </dependency>
 
         <!--spring -->
@@ -109,6 +94,12 @@
             <version>2.0.2</version>
         </dependency>
         <!-- end -->
+
+        <dependency>
+            <groupId>com.dodofly.common</groupId>
+            <artifactId>dodofly-common</artifactId>
+            <version>1.0.0</version>
+        </dependency>
 
     </dependencies>
 
